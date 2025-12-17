@@ -27,7 +27,7 @@ import MyEnrolledCourses from "./pages/MyEnrolledCourses.jsx";
 import useAllReviews from "./customHooks/useAllReviews.js";
 import SearchWithAi from "./pages/SearchWithAi.jsx";
 
-export const serverUrl = import.meta.env.VITE_SERVER_URL || "http://localhost:8000";
+export const serverUrl = "https://skilledge-crx4.onrender.com";
 
 function App() {
     useCurrentUser();      // fetches current user
