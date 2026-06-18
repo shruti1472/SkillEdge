@@ -116,7 +116,7 @@ function
               {/* Google Signup */}
               <div className="w-[80%] h-[40px] border border-black rounded-[5px] flex items-center justify-center gap-2 mt-2 cursor-pointer hover:bg-gray-100" onClick={googleLogin}>
                 <img src={google} alt="Google" className="w-[25px]" />
-                <span className="text-[15px]">Sign up with Google</span>
+                <span className="text-[15px]">Login with Google</span>
               </div>
                <div className="text-[#6f6f6f]">Create new account
             <span className='underline underline-offset-1 text-[black]' onClick={() => navigate("/SignUp")}>Signup</span>

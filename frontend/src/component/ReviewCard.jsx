@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaStar } from "react-icons/fa"
 import { FaRegStar } from "react-icons/fa6"
-import image from '../assets/person.png';
+import image from '../assets/person.webp';
 
 function ReviewCard({ comment, rating, photoUrl, name, description, courseTitle }) {
   return (
