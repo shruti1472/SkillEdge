@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
@@ -9,17 +9,17 @@ import { useSelector } from "react-redux";
 import Profile from "./pages/Profile.jsx";
 import ForgetPass from "./pages/ForgetPassword.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
-import Dashboard from "./pages/Educator/Dashboard.jsx";
-import Courses from "./pages/Educator/Courses.jsx";
-import CreateCourses from "./pages/Educator/CreateCourses.jsx";
-import EditCourse from "./pages/Educator/EditCourse.jsx";
-import CreateLecture from "./pages/Educator/createLecture.jsx";
+const Dashboard = lazy(() => import("./pages/Educator/Dashboard.jsx"));
+const Courses = lazy(() => import("./pages/Educator/Courses.jsx"));
+const CreateCourses = lazy(() => import("./pages/Educator/CreateCourses.jsx"));
+const EditCourse = lazy(() => import("./pages/Educator/EditCourse.jsx"));
+const CreateLecture = lazy(() => import("./pages/Educator/createLecture.jsx"));
+const EditLecture = lazy(() => import("./pages/Educator/EditLecture.jsx"));
 
 import useCurrentUser from "./customHooks/useCurrentUser.js";
 import useCreatorCourses from "./customHooks/useCreatorCourse.js";
-import usePublishedCourse from "./customHooks/usePublishedCourse.js";
+// import usePublishedCourse from "./customHooks/usePublishedCourse.js";
 import AllCourses from "./pages/AllCourses.jsx";
-import EditLecture from "./pages/Educator/EditLecture.jsx";
 import ViewCourse from "./pages/ViewCourse.jsx";
 import ScrollToTop from "./component/ScrollToTop.js";
 import ViewLecture from "./pages/ViewLecture.jsx";
@@ -32,8 +32,8 @@ export const serverUrl = "https://skilledge-crx4.onrender.com";
 function App() {
     useCurrentUser();      // fetches current user
     useCreatorCourses();   // fetches creator courses
-    usePublishedCourse();
-    useAllReviews();
+    // usePublishedCourse();
+    // useAllReviews();
 
     const { userData, loading } = useSelector(state => state.user);
 
@@ -67,34 +67,87 @@ function App() {
                     loading ? <div>Loading...</div> : (userData ? <EditProfile /> : <Navigate to="/signup" />)
                 } />
 
-                <Route path='/Dashboard' element={
-                    loading ? <div>Loading...</div> : (userData?.role === "educator" ? <Dashboard /> : <Navigate to="/signup" />)
-                } />
+               <Route
+    path='/Dashboard'
+    element={
+        loading ? (
+            <div>Loading...</div>
+        ) : (
+            userData?.role === "educator" ? (
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Dashboard />
+                </Suspense>
+            ) : (
+                <Navigate to="/signup" />
+            )
+        )
+    }
+/>
 
-                <Route path='/courses' element={
-                    loading ? <div>Loading...</div> : (userData?.role === "educator" ? <Courses /> : <Navigate to="/signup" />)
-                } />
+               <Route path='/courses' element={
+    loading ? <div>Loading...</div> : (
+        userData?.role === "educator" ? (
+            <Suspense fallback={<div>Loading...</div>}>
+                <Courses />
+            </Suspense>
+        ) : (
+            <Navigate to="/signup" />
+        )
+    )
+} />
 
-                <Route path='/createcourse' element={
-                    loading ? <div>Loading...</div> : (userData?.role === "educator" ? <CreateCourses /> : <Navigate to="/signup" />)
-                } />
+               <Route path='/createcourse' element={
+    loading ? <div>Loading...</div> : (
+        userData?.role === "educator" ? (
+            <Suspense fallback={<div>Loading...</div>}>
+                <CreateCourses />
+            </Suspense>
+        ) : (
+            <Navigate to="/signup" />
+        )
+    )
+} />
 
                  <Route path='/editcourse/:courseId' element={
-                    loading ? <div>Loading...</div> : (userData?.role === "educator" ? <EditCourse /> : <Navigate to="/signup" />)
-                } />
+    loading ? <div>Loading...</div> : (
+        userData?.role === "educator" ? (
+            <Suspense fallback={<div>Loading...</div>}>
+                <EditCourse />
+            </Suspense>
+        ) : (
+            <Navigate to="/signup" />
+        )
+    )
+} />
 
                 <Route path='/allcourses' element={
                     loading ? <div>Loading...</div> : (userData? <AllCourses /> : <Navigate to="/signup" />)
                     
                 } />
 
-                <Route path= "/createlecture/:courseId" element={
-                    loading ? <div>Loading...</div> : (userData?.role === "educator" ? <CreateLecture /> : <Navigate to="/signup" />)
-                } />
+               <Route path='/createlecture/:courseId' element={
+    loading ? <div>Loading...</div> : (
+        userData?.role === "educator" ? (
+            <Suspense fallback={<div>Loading...</div>}>
+                <CreateLecture />
+            </Suspense>
+        ) : (
+            <Navigate to="/signup" />
+        )
+    )
+} />
 
-                <Route path= "/editlecture/:courseId/:lectureId" element={
-                    loading ? <div>Loading...</div> : (userData?.role === "educator" ? <EditLecture /> : <Navigate to="/signup" />)
-                } />
+                <Route path='/editlecture/:courseId/:lectureId' element={
+    loading ? <div>Loading...</div> : (
+        userData?.role === "educator" ? (
+            <Suspense fallback={<div>Loading...</div>}>
+                <EditLecture />
+            </Suspense>
+        ) : (
+            <Navigate to="/signup" />
+        )
+    )
+} />
 
                 <Route path= "/viewcourse/:courseId" element={
                     loading ? <div>Loading...</div> : (userData? <ViewCourse /> : <Navigate to="/signup" />)

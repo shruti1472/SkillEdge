@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import logo1 from '../assets/logo1.png';
-import google from '../assets/google.jpg';
+import logo1 from '../assets/logo1.webp';
+import google from '../assets/google.webp';
 import { IoEyeOutline, IoEye } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';

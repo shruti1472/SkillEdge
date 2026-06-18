@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import ai from "../assets/ai.png";
-import mic from "../assets/mic.png";
+import ai from "../assets/ai.webp";
+import mic from "../assets/mic.webp";
 import startSound from "../assets/start.mp3";
 
 import { useNavigate } from "react-router-dom";

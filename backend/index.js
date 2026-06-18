@@ -15,10 +15,10 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin:"https://skilledge-1.onrender.com",
+  origin: process.env.CLIENT_URL,
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials:true
-}))
+  credentials: true
+}));
 
 app.post("/test", (req, res) => {
   console.log(req.body);

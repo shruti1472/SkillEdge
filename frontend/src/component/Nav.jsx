@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/logo1.png';
+import logo from '../assets/logo1.webp';
 import { IoPersonCircle } from "react-icons/io5";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

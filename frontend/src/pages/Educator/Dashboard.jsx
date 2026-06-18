@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from "react-redux";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
-import img from "../../assets/empty.jpg"; // fallback photo
+import img from "../../assets/empty.webp"; // fallback photo
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 

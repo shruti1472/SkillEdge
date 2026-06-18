@@ -3,7 +3,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { setSelectedCourse } from '../redux/courseSlice';
-import img from "../assets/empty.jpg";
+import img from "../assets/empty.webp";
 import { FaStar } from "react-icons/fa";
 import { FaCirclePlay } from "react-icons/fa6";
 import { FaLock } from "react-icons/fa";

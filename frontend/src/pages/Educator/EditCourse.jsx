@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate, useParams } from 'react-router-dom';
-import img1 from "../../assets/empty.jpg"
+import img1 from "../../assets/empty.webp"
 import { FaEdit } from "react-icons/fa";
 import { serverUrl } from '../../App';
 import axios from 'axios';

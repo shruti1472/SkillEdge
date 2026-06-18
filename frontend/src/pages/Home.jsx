@@ -1,9 +1,9 @@
 import react from 'react';
 import Nav from '../component/Nav.jsx';
-import home from '../assets/home3.png';
+import home from '../assets/home3.webp';
 import { SiViaplay } from "react-icons/si";
-import ai from '../assets/ai.png';
-import ai1 from '../assets/SearchAi.png';
+import ai from '../assets/ai.webp';
+import ai1 from '../assets/SearchAi.webp';
 import Logos from '../component/Logos.jsx';
 import ExploreCourses from '../component/ExploreCourses.jsx';
 import CardPage from '../component/CardPage.jsx';
@@ -11,15 +11,25 @@ import { useNavigate } from 'react-router-dom';
 import About from '../component/About.jsx';
 import Footer from '../component/Footer.jsx';
 import ReviewPage from '../component/ReviewPage.jsx';
+import useAllReviews from "../customHooks/useAllReviews";
+import usePublishedCourse from "../customHooks/usePublishedCourse";
 
 function Home() {
+    usePublishedCourse();
+    useAllReviews();
     const navigate = useNavigate();
     return (
         <div className='w-[100%] overflow-hidden'>
             <div className='w-[100%] lg:h-[140vh]  h-[70vh] relative'>
                 <Nav />
-                <img src={home} alt="" className='w-[100%] lg:h-[100%] h-[50vh] md:object-fill object-cover'/>
-
+<img
+  src={home}
+  alt="Skill Edge LMS"
+  loading="eager"
+  fetchPriority="high"
+   decoding="async"
+  className='w-[100%] lg:h-[100%] h-[50vh] md:object-fill object-cover'
+/>
                <span className="lg-text-[70px] absolute md:text-[40px] lg:top-[10%] top-[15%] 
                w-[100%] flex  items-center justify-center text-white font-bold text-[20px]">
                Grow Your Skills To Advance
